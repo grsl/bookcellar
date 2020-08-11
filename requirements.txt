@@ -1,0 +1,11 @@
+# Requirements for the BookCellar App.
+
+## Database
+
+A dB is required to store the details of the books in one's collection.  It
+will need to be able to store all the details about the book in which someone
+may be interested. Such as the type of binding, the author, the title of the
+book, the publisher, the date of publication, the cost of the book, where it was
+purchased, the number of pages, the format, the weight, the edition, the impression,
+
+
