@@ -14,9 +14,9 @@
          ;
 
     INSERT INTO `authors` (`author_id`, `givenname`, `initials`, `familyname`, `psuedonym`, `yob`, `yod`, `biog`)
-        VALUES (NULL, "Terry", "", "Pratchett", "", "", "", "Terry Pratchet is a very popular author")
-              ,(NULL, "","N.K.","Jemisin","","","","")
-              ,(NULL, "Robert","A","Heinlein","","","","")
+        VALUES (NULL, "Terry", "",    "Pratchett", "", "", "", "Terry Pratchet is a very popular author")
+              ,(NULL, "",      "N.K.","Jemisin",   "","","","")
+              ,(NULL, "Robert","A",   "Heinlein",  "","","","")
     ;
 
     INSERT INTO `authors`(`givenname`, `initials`, `familyname`, `yob`)
