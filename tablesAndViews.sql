@@ -6,11 +6,9 @@
 | Drop, recreate and select the database.
 |
 */
-
     DROP DATABASE IF EXISTS `bookCellar`;
     CREATE DATABASE IF NOT EXISTS `bookCellar` CHARACTER SET utf8 COLLATE utf8_general_ci;
     USE `bookCellar`;
-
 
 /*
 |---------------------------------------
@@ -20,7 +18,6 @@
 | Table structure for the `illustrators` table.
 |
 */
-
     DROP TABLE IF EXISTS `illustrators`;
     CREATE TABLE `illustrators` (
          `illustrators_id` INT(11)  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
@@ -30,7 +27,6 @@
     )
     ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |---------------------------------------
 | Create the Authors table.
@@ -39,7 +35,6 @@
 |  Table structure for `authors` table.
 |
 */
-
     DROP TABLE IF EXISTS `authors`;
     CREATE TABLE `authors` (
          `author_id`  INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
@@ -53,13 +48,11 @@
     )
     ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |--------------------------------------
 | Insert data in to the Authors table.
 |--------------------------------------
 */
-
     LOCK TABLES `authors` WRITE;
     INSERT INTO `authors`(`givenname`, `initials`, `familyname`)
     VALUES("",        "S E", "Hinton")
@@ -241,13 +234,11 @@
           ;
     UNLOCK TABLES;
 
-
 /*
 |-------------------------------------
 |  Table structure for table `years`.
 |-------------------------------------
 */
-
     DROP TABLE IF EXISTS `years`;
     CREATE TABLE `years` (
                  `year_id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
@@ -256,13 +247,11 @@
     )
     ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |--------------------------
 |  Data for `years` table.
 |--------------------------
 */
-
     LOCK TABLES `years` WRITE;
     INSERT INTO `years`()
     VALUES (NULL,1980)
@@ -316,13 +305,11 @@
           ,(NULL,2029);
     UNLOCK TABLES;
 
-
 /*
 |----------------------------------
 |  Structure for `series` table.
 |----------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `series` (
          `series_id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`series`    CHAR(50) DEFAULT NULL
@@ -330,13 +317,11 @@
         )
         ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |--------------------------
 | Data for `series` table.
 |--------------------------
 */
-
     LOCK TABLES `series` WRITE;
     INSERT INTO `series`
     VALUES (1,'Discworld')
@@ -355,7 +340,6 @@
 | Structure for `conditions` table.
 |-----------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `conditions` (
          `cond_id`     INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`cond`        CHAR(100) DEFAULT NULL
@@ -363,13 +347,11 @@
     )
     ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |----------------------------------
 | Data for the `conditions` table.
 |----------------------------------
 */
-
     LOCK TABLES `conditions` WRITE;
     INSERT INTO `conditions`
     VALUES (NULL,'UNASSIGNED.','There isn\'t a description of the condition.')
@@ -384,26 +366,22 @@
           ,(NULL,'Binding Copy.','A book in which the pages or leaves are perfect, but the binding is very bad, loose, off or non-existant>');
     UNLOCK TABLES;
 
-
 /*
 |---------------------------------------
 | Table structure for table `editions`.
 |---------------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `editions` (
         `edition_id` INT(11)  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`edition`   CHAR(10)
     )
     ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |---------------------------------------
 | Data for the `editions` table.
 |---------------------------------------
 */
-
     INSERT INTO `editions` (`edition`)
     VALUES ("First")
           ,("Second")
@@ -417,26 +395,22 @@
           ,("Tenth")
           ;
 
-
 /*
 |---------------------------------------
 | Structure for the `printings` table.
 |---------------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `printings` (
          `printing_id` INT(11)   UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`printing`    CHAR(10)  DEFAULT NULL
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |---------------------------------------
 | Data for the `printings` table.
 |---------------------------------------
 */
-
     INSERT INTO `printings` (`printing`)
     VALUES ("First")
           ,("Second")
@@ -450,26 +424,22 @@
           ,("Tenth")
           ;
 
-
 /*
 |-----------------------------------
 | Structure for table `publishers`.
 |-----------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `publishers` (
          `pub_id` INT(11)   UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`name`  CHAR(100) DEFAULT NULL
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |---------------------------------------
 | Data for the `publishers` table.
 |---------------------------------------
 */
-
     LOCK TABLES `publishers` WRITE;
     INSERT INTO `publishers`
     VALUES ( 1,'Random House')
@@ -561,13 +531,11 @@
           ,(87,'Colin Smythe');
     UNLOCK TABLES;
 
-
 /*
 |-----------------------------------
 | Structure for table `books`.
 |-----------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `books` (
          `book_id`      INT(11)      UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`pub_id`       INT(11)      UNSIGNED NOT NULL
@@ -607,7 +575,6 @@
             #REFERENCES  `authors` (`author_id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |------------------------------
 | Structure for table `sizes`.
@@ -621,13 +588,11 @@
         ,KEY `size_ind` (`size_id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |------------------------------
 | Structure for table `users`.
 |------------------------------
 */
-
     CREATE TABLE `users` (
          `user_id`       INT(11)   UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`username`      CHAR(20)  NOT NULL
@@ -643,13 +608,11 @@
     )
     ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |-------------------------------
 | Structure for table `wanted`.
 |-------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS  `wanted` (
          `book_id` INT(11) UNSIGNED NOT NULL
         ,`user_id` INT(11) UNSIGNED NOT NULL
@@ -662,13 +625,11 @@
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |----------------------------------
 | Structure for table `countries`.
 |----------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `countries` (
         `country_id`    INT(11)   UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`two_letter`   CHAR(2)   NOT NULL
@@ -678,13 +639,11 @@
     )
     ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |-----------------------------
 | Data for table `countries`.
 |-----------------------------
 */
-
     LOCK TABLES `countries` WRITE;
     INSERT INTO `countries`
     VALUES   (  4,'AF','AFG',0,'Afghanistan')
@@ -939,13 +898,11 @@
             ;
     UNLOCK TABLES;
 
-
 /*
 |-----------------------------------
 | Structure for table `categories`.
 |-----------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `categories` (
          `cat_id`   INT(11)   UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`award_id` INT(11)   UNSIGNED DEFAULT NULL
@@ -953,13 +910,11 @@
     )
     ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |----------------------------------
 | Structure for table `addresses`.
 |----------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `addresses` (
          `addr_id`    INT(11)  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`user_id`    INT(11)  UNSIGNED NOT NULL
@@ -976,7 +931,6 @@
         ,CONSTRAINT `fk_address_country` FOREIGN KEY `addresses` (`country_id`)
             REFERENCES `countries` (`country_id`)
         ) ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
-
 
     CREATE TABLE IF NOT EXISTS `awards` (
          `award_id`  INT(11)  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
@@ -999,13 +953,11 @@
             REFERENCES `categories` (`cat_id`)
         ) ENGINE=InnoDB CHARSET=utf8;
 
-
 /*
 |----------------------------------
 | Structure for view `vAuthors`
 |----------------------------------
 */
-
     CREATE VIEW `vAuthors` AS
         SELECT
             CONCAT(
@@ -1018,13 +970,11 @@
                ,`biog`      AS "Short Biography"
            FROM `authors`;
 
-
 /*
 |-------------------------------------
 | Structure for view `vAwardWinners`.
 |-------------------------------------
 */
-
     CREATE VIEW `vAwardWinners` AS
         SELECT `a`.`award` AS 'Award'
         ,`c`.`category` AS 'Category'
@@ -1039,13 +989,11 @@
         JOIN `years`      AS `y`  ON((`a`.`year_id`   = `y`.`year_id`)))
         JOIN `publishers` AS `p`  ON((`b`.`pub_id`    = `p`.`pub_id`)));
 
-
 /*
 |------------------------------
 | Structure for view `vBooks`.
 |------------------------------
 */
-
     CREATE VIEW `vBooks` AS
         SELECT `b`.`book_id`     AS 'Book ID'
               ,`b`.`title`       AS 'Title'
@@ -1061,13 +1009,11 @@
         LEFT OUTER JOIN `publishers` AS `p` ON `b`.`pub_id` = `p`.`pub_id`
         LEFT OUTER JOIN `conditions` AS `c` ON `b`.`cond_id` = `c`.`cond_id`;
 
-
 /*
 |----------------------------------
 | Structure for view `vUsers`.
 |----------------------------------
 */
-
     CREATE VIEW `vUsers` AS
          SELECT `u`.`username`                                AS 'User Name.'
                 ,CONCAT(`u`.`givenname`,' ',`u`.`familyname`) AS 'Full Name.'
@@ -1084,13 +1030,11 @@
             LEFT OUTER JOIN `addresses` AS `a` ON `u`.`addr_id`    = `a`.`addr_id`
             LEFT OUTER JOIN `countries` AS `c` ON `a`.`country_id` = `c`.`country_id`;
 
-
 /*
 |-------------------------------
 | Structure for view `vOrders`.
 |-------------------------------
 */
-
 /*
 CREATE VIEW `vOrders` AS
     SELECT `order_lines_id`
@@ -1102,13 +1046,11 @@ CREATE VIEW `vOrders` AS
     FROM `order_lines`;
 */
 
-
 /*
 |----------------------------------
 | Data for the `illustrators` table.
 |----------------------------------
 */
-
     LOCK TABLES `illustrators` WRITE;
     INSERT INTO `illustrators`(`book_id`,`givenname`,`familyname`)
     VALUES  (0,'Unknown','Unillustrated')
@@ -1129,7 +1071,6 @@ CREATE VIEW `vOrders` AS
 | Data for the `books` table.
 |----------------------------------
 */
-
     LOCK TABLES `books` WRITE;
     INSERT INTO `books`(`pub_id`,`cond_id`,`series_id`,`title`,`printing_id`,`edition_id`,`pub_date`,`illus_id`)
     VALUES (87, 10, 1, 'The Colour of Magic', 7, 7, 19, 10)
@@ -1156,13 +1097,11 @@ CREATE VIEW `vOrders` AS
     SET blurb = 'The Fifth Season is a 2015 science fantasy novel by N. K. Jemisin. It was awarded the Hugo Award for Best Novel in 2016. It is the first volume in the Broken Earth series, and is followed by The Obelisk Gate and The Stone Sky.'
     WHERE title ='The Fifth Season';
 
-
 /*
 |----------------------------------
 | Data for the `categories` table.
 |----------------------------------
 */
-
     LOCK TABLES `categories` WRITE;
     INSERT INTO `categories` (`cat_id`,`award_id`,`category`)
     VALUES ( 1,1,'Best Novel')
@@ -1186,13 +1125,11 @@ CREATE VIEW `vOrders` AS
           ,(19,1,"Best New Professional Science Fiction or Fantasy Writer");
     UNLOCK TABLES;
 
-
 /*
 |-------------------------
 | Data for table `users`.
 |-------------------------
 */
-
     LOCK TABLES `users` WRITE;
     INSERT INTO `users`
     VALUES (1,'grsl',NULL,'simon','long','grslong@gmail.com',1,NULL,'12054952e9fba7de4121aea7e0504d9533e94fda','2017-11-18 09:59:34','2017-11-18 09:59:34')
@@ -1206,13 +1143,11 @@ CREATE VIEW `vOrders` AS
      , (NULL, "pa",   '', 'paul',  'askew', 'paulA@hotmail.com', 2,2,PASSWORD('23fish'),NOW(),NOW())
     ;
 
-
 /*
 |-----------------------------
 | Data for table `addresses`.
 |-----------------------------
 */
-
     LOCK TABLES `addresses` WRITE;
     INSERT INTO `addresses`
     VALUES (1,1,NULL,'Plum Tree Cottage','Goose Rye Road','Worplesdon','Surrey',826)
@@ -1220,13 +1155,11 @@ CREATE VIEW `vOrders` AS
           ,(3,3,35,NULL,'Hillside','Woking','Surrey',826);
     UNLOCK TABLES;
 
-
 /*
 |--------------------------
 | Data for table `awards`.
 |--------------------------
 */
-
     LOCK TABLES `awards` WRITE;
     INSERT INTO `awards`(`award_id`, `award`, `year_id`, `book_id`, `author_id`, `cat_id`)
     VALUES(NULL,"Hugo Award", 1, 2, 2, 1)
@@ -1250,13 +1183,11 @@ CREATE VIEW `vOrders` AS
          ;
     UNLOCK TABLES;
 
-
 /*
 |---------------------------------------------
 | Table structure for the table `has_a_book`.
 |---------------------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `has_a_book` (
          `book_id`   INT(11) UNSIGNED NOT NULL
         ,`author_id` INT(11) UNSIGNED NOT NULL
@@ -1270,13 +1201,11 @@ CREATE VIEW `vOrders` AS
     )
     ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |----------------------------------
 | Data for the `has_a_book` table.
 |----------------------------------
 */
-
     LOCK TABLES `has_a_book` WRITE;
     INSERT INTO `has_a_book`
     VALUES (1,6)
@@ -1286,7 +1215,6 @@ CREATE VIEW `vOrders` AS
           ,(5,7);
     UNLOCK TABLES;
 
-
 /*
 |----------------------------------------------------------------------------
 |
@@ -1294,13 +1222,11 @@ CREATE VIEW `vOrders` AS
 |
 |----------------------------------------------------------------------------
 */
-
 /*
 |-----------------
 | View `vAwards`.
 |-----------------
 */
-
     CREATE VIEW `vAwards` AS
     SELECT `a`.`award`
           ,`c`.`category`
@@ -1315,13 +1241,11 @@ CREATE VIEW `vOrders` AS
     JOIN `years`      AS `y`  ON `a`.`year_id`   = `y`.`year_id`
     JOIN `authors`    AS `au` ON `a`.`author_id` = `au`.`author_id`;
 
-
 /*
 |---------------
 | View `vTemp`.
 |---------------
 */
-
     CREATE VIEW `vTemp` AS
     SELECT b.title     AS "Title"
           ,CONCAT(a.givenname, a.initials, a.familyname) AS "Author"
@@ -1363,7 +1287,6 @@ CREATE VIEW `vOrders` AS
 | View `vIllustratedBooks`.
 |---------------------------
 */
-
     CREATE VIEW `vIllustratedBooks` AS
         SELECT `b`.`title` AS "Title"
                ,CONCAT(`a`.`givenname`, " ", `a`.`familyname`) AS "Author"
@@ -1376,13 +1299,11 @@ CREATE VIEW `vOrders` AS
             AND `hab`.`book_id`   = `b`.`book_id`
             AND `hab`.`author_id` = `a`.`author_id`;
 
-
 /*
 |------------------------
 | View `vBooksByAuthor`.
 |------------------------
 */
-
     CREATE VIEW `vBooksByAuthor` AS
     SELECT CONCAT(COALESCE(`au`.`givenname`,`au`.`initials`),' ',`au`.`familyname`) AS 'Name'
         ,`b`.`title` AS 'Title'
@@ -1391,7 +1312,6 @@ CREATE VIEW `vOrders` AS
     JOIN `has_a_book` AS `h`  ON((`h`.`author_id` = `au`.`author_id`)))
     JOIN `books`      AS  `b` ON((`h`.`book_id`   = `b`.`book_id`)));
 
-
 /*
 |---------------------------------------------------------------------------------------
 |
@@ -1399,13 +1319,11 @@ CREATE VIEW `vOrders` AS
 |
 |---------------------------------------------------------------------------------------
 */
-
-    /*
-    |---------------------------------
-    | Procedure to title case a word.
-    |---------------------------------
-    */
-
+/*
+|---------------------------------
+| Procedure to title case a word.
+|---------------------------------
+*/
     DELIMITER //
     CREATE PROCEDURE `bookCellar`.`spInsertCategory` (IN `newCategory` CHAR(100))
     BEGIN
@@ -1417,12 +1335,11 @@ CREATE VIEW `vOrders` AS
     END //
     DELIMITER ;
 
-    /*
-    |-----------------------------------------------
-    | Alias for the procedure to title case a word.
-    |-----------------------------------------------
-    */
-
+/*
+|-----------------------------------------------
+| Alias for the procedure to title case a word.
+|-----------------------------------------------
+*/
     DELIMITER //
     CREATE PROCEDURE `bookCellar`.`spUsers` ()
     BEGIN
@@ -1430,22 +1347,16 @@ CREATE VIEW `vOrders` AS
     END //
     DELIMITER ;
 
-
-    /*
-    |-----------------------------------------------
-    | Next procedure.
-    |-----------------------------------------------
-    */
-
-
-
-
+/*
+|-----------------------------------------------
+| Next procedure.
+|-----------------------------------------------
+*/
 /*
 |-----------------------------
 | Table Structure for Orders.
 |-----------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `orders` (
          `order_id`    INT(11)   UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`order_no`    INT(11)   UNSIGNED NOT NULL DEFAULT '1000'
@@ -1468,13 +1379,11 @@ CREATE VIEW `vOrders` AS
             REFERENCES  `addresses` (`addr_id`)
         ) ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |-----------------------------------
 | Table Structure for `order_ines`.
 |-----------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `order_lines` (
          `order_lines_id` INT(11) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`order_id`       INT(11) UNSIGNED NOT NULL
@@ -1490,26 +1399,22 @@ CREATE VIEW `vOrders` AS
         )
         ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-
 /*
 |--------------------------------
 | Table Structure for `weights`.
 |--------------------------------
 */
-
     CREATE TABLE IF NOT EXISTS `weights` (
          `weights_id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`metric`     INT(10)
         ,`imperial`   FLOAT(8,3)
     );
 
-
 /*
 |-----------------------------------
 | Table Structure for `order`.
 |-----------------------------------
 */
-
     INSERT INTO `orders`(
                 `order_id`
                ,`order_no`
@@ -1521,7 +1426,6 @@ CREATE VIEW `vOrders` AS
                )
         VALUES (NULL, 1003,1,1,1,1,NOW()
         );
-
 
 /*
 |-------------------------------
@@ -1594,13 +1498,11 @@ CREATE VIEW `vOrders` AS
         VALUES (NULL,1000,1,1,1,1,NOW());
     UNLOCK TABLES;
 
-
 /*
 |------------------------------------------------------------------------------------------
 | Views.
 |------------------------------------------------------------------------------------------
 */
-
     DROP VIEW IF EXISTS `vOrders`;
     CREATE VIEW `vOrders` AS
         SELECT `o`.`order_id`   AS "ID"
@@ -1655,15 +1557,12 @@ CREATE VIEW `vOrders` AS
         ON `o`.`delivery_id` = `a`.`addr_id`
         ;
 
-
 /*
 |-----------------------------------
 | Final view structure for view `vUserOrders`
 |-----------------------------------
 */
-
     DROP VIEW IF EXISTS `vUsersOrders`;
-
     CREATE VIEW `vUsersOrders` AS
         SELECT `o`.`order_no`     AS 'Order Number'
                ,DATE_FORMAT(`o`.`order_date`,'%W the %D of %M, %Y') AS 'Date Ordered'
@@ -1689,7 +1588,6 @@ CREATE VIEW `vOrders` AS
             LEFT JOIN `addresses`  AS `ad`  ON `u`.`addr_id`     = `ad`.`addr_id`
             LEFT JOIN `countries`  AS `c`   ON `ad`.`country_id` = `c`.`country_id`;
 
-
 /*
 |----------------------------------------------------------------------------------------
 | vBooksByUser.
@@ -1699,7 +1597,6 @@ CREATE VIEW `vOrders` AS
 |
 |----------------------------------------------------------------------------------------
 */
-
     CREATE VIEW `vBooksByUser` AS
         SELECT * FROM users AS `a`
         ;
@@ -1715,7 +1612,6 @@ CREATE VIEW `vOrders` AS
 |
 |-------------------------------------------------------------
 */
-
     DROP TABLE IF EXISTS `pServices`;
     DROP TABLE IF EXISTS `pWeights`;
     DROP TABLE IF EXISTS `pSizes`;
@@ -1725,7 +1621,6 @@ CREATE VIEW `vOrders` AS
     DROP TABLE IF EXISTS `pProviders`;
     DROP VIEW  IF EXISTS `vpCharges`;
 
-
 /*
 |-------------------------------------------------------------
 |
@@ -1733,38 +1628,33 @@ CREATE VIEW `vOrders` AS
 |
 |-------------------------------------------------------------
 */
-
-    /*
-    |-----------------------------------------------
-    |  Table Structure for Table `Postal Provider`.
-    |-----------------------------------------------
-    */
-
+/*
+|-----------------------------------------------
+|  Table Structure for Table `Postal Provider`.
+|-----------------------------------------------
+*/
     CREATE TABLE `pProviders`(
          `pProvider_id` INT(11)  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`pProvider`    CHAR(30)
         )
         ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-
-    /*
-    |-------------------------------------------------------------
-    |   Table Structure for Table `pClaseOfService1`.
-    |-------------------------------------------------------------
-    */
-
+/*
+|-------------------------------------------------------------
+|   Table Structure for Table `pClaseOfService1`.
+|-------------------------------------------------------------
+*/
     CREATE TABLE `pClass` (
          `pClass_id`   INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`pProvider_id` INT(11) UNSIGNED NOT NULL
         ,`pClass`      CHAR(25)
     );
 
-    /*
-    |-------------------------------------------------------------
-    |   Table Structure for Table `pSizes`.
-    |-------------------------------------------------------------
-    */
-
+/*
+|-------------------------------------------------------------
+|   Table Structure for Table `pSizes`.
+|-------------------------------------------------------------
+*/
     CREATE TABLE `pSizes` (
          `pSize_id`  INT(11)     UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`pMetric`   FLOAT(12,6) DEFAULT NULL COMMENT "All sizes  are in centimetres."
@@ -1772,13 +1662,11 @@ CREATE VIEW `vOrders` AS
         )
         ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-
-    /*
-    |-------------------------------------------------------------
-    |   Table Structure for Table `weights`.
-    |-------------------------------------------------------------
-    */
-
+/*
+|-------------------------------------------------------------
+|   Table Structure for Table `weights`.
+|-------------------------------------------------------------
+*/
     CREATE TABLE `pWeights` (
          `pWeight_id` INT(11)     UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`pMetric`    FLOAT(12,6) DEFAULT NULL COMMENT "All weights are in grammes."
@@ -1787,13 +1675,11 @@ CREATE VIEW `vOrders` AS
         )
         ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-
-    /*
-    |-------------------------------------------------------------
-    |  Table Structure for Table `pServices`.
-    |-------------------------------------------------------------
-    */
-
+/*
+|-------------------------------------------------------------
+|  Table Structure for Table `pServices`.
+|-------------------------------------------------------------
+*/
     CREATE TABLE `pServices` (
          `pService_id`    INT(11)  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`pProvider_id`   INT(11)  UNSIGNED NOT NULL
@@ -1815,8 +1701,6 @@ CREATE VIEW `vOrders` AS
 |  End of Tables.
 |-------------------------------------------------------------
 */
-
-
 /*
 |-------------------------------------------------------------
 |
@@ -1824,13 +1708,11 @@ CREATE VIEW `vOrders` AS
 |
 |-------------------------------------------------------------
 */
-
-    /*
-    |-------------------------------------------------------------
-    |   Data for table `Postal Provider`.
-    |-------------------------------------------------------------
-    */
-
+/*
+|-------------------------------------------------------------
+|   Data for table `Postal Provider`.
+|-------------------------------------------------------------
+*/
     INSERT INTO `pProviders` (`pProvider_id`,`pProvider`)
         VALUES (1, "Royal Mail")
               ,(2, "Federal Express (FedEx)")
@@ -1838,13 +1720,11 @@ CREATE VIEW `vOrders` AS
               ,(4, "Parcel Force")
               ;
 
-
-    /*
-    |-------------------------------------------------------------
-    |   Data for classes of service.
-    |-------------------------------------------------------------
-    */
-
+/*
+|-------------------------------------------------------------
+|   Data for classes of service.
+|-------------------------------------------------------------
+*/
     INSERT INTO `pClass` ()
     VALUES(NULL, 1, "Letter")
          ,(NULL, 1, "Large Letter")
@@ -1859,13 +1739,11 @@ CREATE VIEW `vOrders` AS
          ,(NULL, 4, "Worldwide")
         ;
 
-
-    /*
-    |-------------------------------------------------------------
-    |   Data for Table `Weights`.
-    |-------------------------------------------------------------
-    */
-
+/*
+|-------------------------------------------------------------
+|   Data for Table `Weights`.
+|-------------------------------------------------------------
+*/
     INSERT INTO `pWeights` (`pMetric`, `pImperial`)
         VALUES (    0, 0)
               ,(  100, 0)
@@ -1882,13 +1760,9 @@ CREATE VIEW `vOrders` AS
               ,(30000, 0)
               ;
 
-
-    /*
-    |-------------------------------------------------------------
-    |   Data for table `pServices`.
-    |-------------------------------------------------------------
-    */
-
+/*------------------------------------------------------------\-
+|   Data for table `pServices`.
+\-------------------------------------------------------------*/
     INSERT INTO `pServices` (`pService_id`, `pProvider_id`, `pCOS_1_id`, `pCOS_2_id`, `pMax_weight_id`, `length`, `width`, `height`,`notes`, `cost`)
         VALUES ( NULL, 1, 1, 1,  2,   24, 16.5,  0.5, "",                                               0.65)
               ,( NULL, 1, 1, 2,  2,   24, 16.5,  0.5, "",                                               0.56)
@@ -1919,13 +1793,11 @@ CREATE VIEW `vOrders` AS
               ,( NULL, 4, 10,0,  5, 35.3,   25, 2.50,  "Compensation up to £100.",                      0.0)
               ;
 
-
-    /*
-    |-------------------------------------------------------------
-    |  Table Structure for Table `pSizes`.
-    |-------------------------------------------------------------
-    */
-
+/*
+|-------------------------------------------------------------
+|  Table Structure for Table `pSizes`.
+|-------------------------------------------------------------
+*/
     INSERT INTO `pSizes` (`pMetric`, `pImperial`)
      #`pSize_id`, `pMetric`, `pImperial`
          VALUES(0,0)
@@ -1944,8 +1816,6 @@ CREATE VIEW `vOrders` AS
 |  End of Data.
 |-------------------------------------------------------------
 */
-
-
 /*
 |-------------------------------------------------------------
 |
@@ -1953,13 +1823,11 @@ CREATE VIEW `vOrders` AS
 |
 |-------------------------------------------------------------
 */
-
-    /*
-    |-------------------------------------------------------------
-    |   Structure for View `vpCharges`.
-    |-------------------------------------------------------------
-    */
-
+/*
+|-------------------------------------------------------------
+|   Structure for View `vpCharges`.
+|-------------------------------------------------------------
+*/
     CREATE VIEW `vpCharges` AS
         SELECT `p`.`pProvider` AS "Service Provider"
               ,`s`.`pCOS_1_id`   AS "Service"
@@ -1976,13 +1844,11 @@ CREATE VIEW `vOrders` AS
         LEFT OUTER JOIN `pServices` AS `s` ON `p`.`pProvider_id` = `s`.`pProvider_id`
         LEFT OUTER JOIN `pWeights`  AS `w` ON `s`.`pMax_weight_id` = `w`.`pWeight_id`;
 
-
 /*
 |-------------------------------------------------------------
 |   End of Views.
 |-------------------------------------------------------------
 */
-
 
 /*
 |----------------
@@ -1992,44 +1858,30 @@ CREATE VIEW `vOrders` AS
 |----------------
 */
 
-    /*
-    |-----------------------------
-    |  Convert Grammes to Ounces.
-    |-----------------------------
-    */
-
-    UPDATE `pWeights` SET `pImperial` = (`pMetric` * 0.03527396195);
-
-    /*
-    |---------------------------------
-    |  Convert Centimetres to Inches.
-    |---------------------------------
-    */
-
-    UPDATE `pSizes` SET `pImperial` = (`pMetric` * 0.3937008);
-
+/*
+|-----------------------------
+|  Convert Grammes to Ounces.
+|-----------------------------
+*/
+UPDATE `pWeights` SET `pImperial` = (`pMetric` * 0.03527396195);
 
 /*
-|-----------------------
-|   End of Convertions.
-|-----------------------
+|---------------------------------
+|  Convert Centimetres to Inches.
+|---------------------------------
 */
+UPDATE `pSizes` SET `pImperial` = (`pMetric` * 0.3937008);
 
 /*
 |---------------------------
 |   End of Postage Section.
 |---------------------------
 */
-
-
-
-
 /*
 |-------------------------------------------
 |   Function to title case individual words.
 |-------------------------------------------
 */
-
     DROP FUNCTION IF EXISTS TITLE;
 
     DELIMITER //
@@ -2047,18 +1899,13 @@ CREATE VIEW `vOrders` AS
     END //
     DELIMITER ;;
 
-
 /*
 |-------------------------------------------
 |   Function to title case individual words.
-|-------------------------------------------
-|
 |   Alias for TITLE.
-|
+|-------------------------------------------
 */
-
     #DROP FUNCTION IF EXISTS TCASE;
-
     DELIMITER //
     CREATE FUNCTION TCASE(`s` CHAR(25))
     RETURNS CHAR(25)
@@ -2068,13 +1915,11 @@ CREATE VIEW `vOrders` AS
     END//
     DELIMITER ;
 
-
 /*
 |-------------------------------------------
 |   End of Functions.
 |-------------------------------------------
 */
-
 /*
 |----------------------------------------------------------------------------------------
 | END.
