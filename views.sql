@@ -1,3 +1,6 @@
+
+    USE bookCellar
+
 /*
 |----------------------------------
 | Structure for view `vAuthors`

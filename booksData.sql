@@ -3,6 +3,8 @@
 | Data for the `books` table.
 |----------------------------------
 */
+    USE bookCellar
+
     LOCK TABLES `books` WRITE;
     INSERT INTO `books`(`pub_id`,`cond_id`,`series_id`,`title`,`printing_id`,`edition_id`,`pub_date`,`illus_id`)
     VALUES (87, 10, 1, 'The Colour of Magic', 7, 7, 19, 10)

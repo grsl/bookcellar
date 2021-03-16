@@ -1,3 +1,6 @@
+
+    USE bookCellar
+
 /*
 |-----------------------------------
 | Structure for table `categories`.

@@ -3,6 +3,8 @@
 | Data for table `countries`.
 |-----------------------------
 */
+    USE bookCellar
+
     LOCK TABLES `countries` WRITE;
     INSERT INTO `countries`
     VALUES   (  4,'AF','AFG',0,'Afghanistan')

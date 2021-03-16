@@ -3,6 +3,9 @@
 | Structure for table `countries`.
 |----------------------------------
 */
+
+    USE bookCellar
+
     CREATE TABLE IF NOT EXISTS `countries` (
         `country_id`    INT(11)   UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`two_letter`   CHAR(2)   NOT NULL

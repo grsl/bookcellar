@@ -3,7 +3,7 @@
 | Structure for table `addresses`.
 ----------------------------------
 */
-laksdjflaksdjfal;sdkjfa;sdlkjf :# a;lsdkfja;sdlkjfalkj
+
     USE bookCellar
 
     CREATE TABLE IF NOT EXISTS `addresses` (

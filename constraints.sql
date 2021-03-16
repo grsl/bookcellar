@@ -3,6 +3,12 @@
 | Structure for table `books`.
 |-----------------------------------
 */
+CREATE INDEX award_year_index on awards(year_in);
+CREATE INDEX books_publisher_index ON books(pub_id);
+CREATE INDEX books_condition_index ON books(cond_id);
+CREATE INDEX books_series_index ON books(series_id);
+
+    /*
     ALTER TABLE `books` (
          INDEX `publisher_ind`    (`pub_id`)
         ,INDEX `condition_ind`    (`cond_id`)
@@ -26,6 +32,7 @@
         ,CONSTRAINT `fk_book_author` FOREIGN KEY `books` (`author_id`)
             REFERENCES  `authors` (`author_id`)
         );
+    */
 
 /*
 |-------------------------------

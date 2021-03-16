@@ -3,7 +3,10 @@
 | Data for table `awards`.
 |--------------------------
 */
+    USE bookCellar
+
     LOCK TABLES `awards` WRITE;
+
     INSERT INTO `awards`(`award_id`, `award`, `year_id`, `book_id`, `author_id`, `cat_id`)
     VALUES(NULL,"Hugo Award", 1, 2, 2, 1)
          ,(NULL,"Wellcome Book Prize", 1, 2, 2, 1)
