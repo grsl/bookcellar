@@ -3,6 +3,8 @@
 | Data for the `conditions` table.
 |----------------------------------
 */
+    USE bookCellar
+
     LOCK TABLES `conditions` WRITE;
     INSERT INTO `conditions`
     VALUES (NULL,'UNASSIGNED.','There isn\'t a description of the condition.')

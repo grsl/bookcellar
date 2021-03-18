@@ -3,7 +3,10 @@
 | Insert data in to the Authors table.
 |--------------------------------------
 */
+    USE bookCellar
+
     LOCK TABLES `authors` WRITE;
+
     INSERT INTO `authors`(`givenname`, `initials`, `familyname`)
     VALUES("",        "S E", "Hinton")
          ,("Frank",   "L",   "Holt")

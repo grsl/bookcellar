@@ -1,4 +1,6 @@
 
+    USE bookCellar
+
 /*
 |---------------------------
 |   End of Postage Section.
@@ -32,12 +34,15 @@
 |-------------------------------------------
 */
 
-DROP FUNCTION IF EXISTS TCASE;
+DROP FUNCTION IF EXISTS TCASE
+
 DELIMITER //
+
 CREATE FUNCTION TCASE(`s` CHAR(25))
-RETURNS CHAR(25)
-DETERMINISTIC
-BEGIN
-    RETURN TITLE(`s`);
-END//
+    RETURNS CHAR(25)
+    DETERMINISTIC
+    BEGIN
+        RETURN TITLE(`s`);
+    END//
+
 DELIMITER ;

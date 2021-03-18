@@ -3,6 +3,8 @@
 | Structure for view `vAuthors`
 |----------------------------------
 */
+    USE bookCellar
+
     CREATE VIEW `vAuthors` AS
         SELECT
             CONCAT(
@@ -13,4 +15,4 @@
                ,`yob`       AS "Year of Birth"
                ,`yod`       AS "Year of Death"
                ,`biog`      AS "Short Biography"
-           FROM `authors`;
+    FROM `authors`;

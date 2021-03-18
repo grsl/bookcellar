@@ -3,6 +3,8 @@
 | Data for the `illustrators` table.
 |----------------------------------
 */
+    USE bookCellar
+
     LOCK TABLES `illustrators` WRITE;
     INSERT INTO `illustrators`(`book_id`,`givenname`,`familyname`)
     VALUES  (0,'Unknown','Unillustrated')

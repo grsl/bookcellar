@@ -3,6 +3,8 @@
 | Data for the `categories` table.
 |----------------------------------
 */
+    USE bookCellar
+
     LOCK TABLES `categories` WRITE;
     INSERT INTO `categories` (`cat_id`,`award_id`,`category`)
     VALUES ( 1,1,'Best Novel')

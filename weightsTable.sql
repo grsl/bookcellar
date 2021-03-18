@@ -1,3 +1,4 @@
+USE bookCellar
 /*
 |-------------------------------
 | Table Structure for `weights`.

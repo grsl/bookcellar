@@ -6,6 +6,8 @@
 | Table structure for the `illustrators` table.
 |
 */
+    USE bookCellar
+
     DROP TABLE IF EXISTS `illustrators`;
     CREATE TABLE `illustrators` (
          `illustrators_id` INT(11)  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY

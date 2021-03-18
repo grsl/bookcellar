@@ -3,6 +3,8 @@
 | Table Structure for `order`.
 |-----------------------------------
 */
+    USE bookCellar
+
     INSERT INTO `orders`(
                 `order_id`
                ,`order_no`

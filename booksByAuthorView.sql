@@ -3,6 +3,8 @@
 | View `vBooksByAuthor`.
 |------------------------
 */
+    USE bookCellar
+
     CREATE VIEW `vBooksByAuthor` AS
     SELECT CONCAT(COALESCE(`au`.`givenname`,`au`.`initials`),' ',`au`.`familyname`) AS 'Name'
         ,`b`.`title` AS 'Title'

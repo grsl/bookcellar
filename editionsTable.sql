@@ -3,6 +3,8 @@
 | Table structure for table `editions`.
 |---------------------------------------
 */
+    USE bookCellar
+
     CREATE TABLE IF NOT EXISTS `editions` (
         `edition_id` INT(11)  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`edition`   CHAR(10)

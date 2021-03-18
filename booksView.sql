@@ -3,6 +3,8 @@
 | Structure for view `vBooks`.
 |------------------------------
 */
+    USE bookCellar
+
     CREATE VIEW `vBooks` AS
         SELECT `b`.`book_id`     AS 'Book ID'
               ,`b`.`title`       AS 'Title'

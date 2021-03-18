@@ -3,7 +3,9 @@
 | Structure for table `users`.
 |------------------------------
 */
-    CREATE TABLE `users` (
+    USE bookCellar
+
+    CREATE TABLE IF NOT EXISTS `users` (
          `user_id`       INT(11)   UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
         ,`username`      CHAR(20)  NOT NULL
         ,`initials`      CHAR(12)  DEFAULT NULL

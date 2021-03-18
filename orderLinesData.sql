@@ -3,6 +3,8 @@
 | Data for table `order_lines`.
 |-------------------------------
 */
+    USE bookCellar
+
     LOCK TABLES `order_lines` WRITE;
         INSERT INTO `order_lines`(
                     `order_id`

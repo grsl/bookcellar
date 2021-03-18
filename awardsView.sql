@@ -3,6 +3,8 @@
 | View `vAwards`.
 |-----------------
 */
+    USE bookCellar
+
     CREATE VIEW `vAwards` AS
     SELECT `a`.`award`
           ,`c`.`category`

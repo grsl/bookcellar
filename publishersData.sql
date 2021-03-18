@@ -1,3 +1,6 @@
+
+USE bookCellar
+
 /*
 |---------------------------------------
 | Data for the `publishers` table.
